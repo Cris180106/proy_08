@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Definición de la clase base Persona
+class Persona {
+    // se define un metodo constructor de la clase Persona que recibe nombre y documento
+    constructor(nombre, documento) {
+        this.nombre = nombre;
+        this.documento = documento;
+    }
+
+    //  se define un metodo llamado presentarse, el cueal muestra una presentación básica de la persona
+    presentarse() {
+        console.log(`Hola, mi nombre es ${this.nombre} y mi documento es ${this.documento}.`);
+    }
+}
+
+// se definine de la clase Estudiante que hereda de Persona
+class Estudiante extends Persona {
+    // Se define un metodo constructor de la clase Estudiante que agrega programa y grupo al constructor de Persona
+    constructor(nombre, documento, programa, grupo) {
+        super(nombre, documento);
+        this.programa = programa;
+        this.grupo = grupo;
+    }
+
+    // Método matricularse: Muestra información sobre la matrícula del estudiante
+    matricularse() {
+        console.log(`Estoy matriculado en el programa ${this.programa}, grupo ${this.grupo}.`);
+    }
+}
+
+// Definición de la clase Profesor que hereda de Persona
+class Profesor extends Persona {
+    // Constructor de la clase Profesor que agrega asignatura y salario al constructor de Persona
+    constructor(nombre, documento, asignatura, salario) {
+        super(nombre, documento);
+        this.asignatura = asignatura;
+        this.salario = salario;
+    }
+
+    // método contrato,uestra información sobre el contrato del profesor
+    contrato() {
+        console.log(`Soy profesor de ${this.asignatura} y tengo un salario de $${this.salario}.`);
+    }
+}
+
+// Definición de la clase EtapaAcademica que hereda de Estudiante
+class EtapaAcademica extends Estudiante {
+    // Constructor de la clase EtapaAcademica que agrega trimestre, inicio y finalización
+    constructor(nombre, documento, programa, grupo, trimestre, inicio, finalizacion) {
+        super(nombre, documento, programa, grupo);
+        this.trimestre = trimestre;
+        this.inicio = inicio;
+        this.finalizacion = finalizacion;
+    }
+
+    // Método informacionTrimestre, muestra información sobre el trimestre académico
+    informacionTrimestre() {
+        console.log(`Comencé el ${this.inicio} y finalicé el trimestre ${this.trimestre} el ${this.finalizacion}.`);
+    }
+
+    // Método estadoActua, muestra el estado académico actual
+    estadoActual() {
+        console.log(`Actualmente me encuentro en el trimestre ${this.trimestre}.`);
+    }
+}
+
+// Crear una instancia de EtapaAcademica para un estudiante
+const estudiante1 = new EtapaAcademica("Juan Sebastian  Pérez", "10732456789", "Ingenieria Electrica", "Grupo A", 2, "2023-01-15", "2023-05-30");
+
+// Llamar a métodos para presentar al estudiante, mostrar información del trimestre y estado actual, y matricularse
+estudiante1.presentarse();
+estudiante1.informacionTrimestre();
+estudiante1.estadoActual();
+estudiante1.matricularse();
+
+// Crear una instancia de Profesor
+const profesor1 = new Profesor("María Gómez", "67890", "Matemáticas", 70000);
+
+// Llamar a métodos para presentar al profesor y mostrar información del contrato
+profesor1.presentarse();
+profesor1.contrato();
+
+//hecho por Juan Pablo Bernal y Cristian Pimiento
+
+/* este proyecto se realizo usando programacion orientada a objetos, definiendo clases ara representar personas
+, estudiantes y profesores en un entorno académico y se crean instancias
+ de un estudiante y un profesor, y se utilizan métodos para mostrar su información. */
+
+
+    </script>
+</body>
+
+</html>

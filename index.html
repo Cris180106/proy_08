@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Definición de la clase Persona para representar individuos.
+class Persona {
+    // Atributos privados de la clase Persona
+    #nombreCompleto;  // Nombre completo de la persona
+    #edad;  // Edad de la persona
+
+    // Constructor de la clase Persona
+    constructor() {
+        this.#nombreCompleto = '';  // Inicializa el nombre completo
+        this.#edad = 0;  // Inicializa la edad
+    }
+
+    // Setter para asignar el nombre completo
+    set setNombreCompleto(value) {
+        this.#nombreCompleto = value;
+    }
+
+    // Getter para obtener el nombre completo
+    get getNombreCompleto() {
+        return this.#nombreCompleto;
+    }
+
+    // Setter para asignar la edad
+    set setEdad(value) {
+        this.#edad = value;
+    }
+
+    // Getter para obtener la edad
+    get getEdad() {
+        return this.#edad;
+    }
+
+    // Método para saludar, muestra el nombre y la edad
+    Saludar() {
+        console.log('Hola, me llamo ' + this.getNombreCompleto + ' y tengo ' + this.getEdad + ' años');
+    }
+}
+
+// Subclase Aprendiz que hereda de Persona
+class Aprendiz extends Persona {
+    // Atributos privados de la clase Aprendiz
+    #ficha;  // Número de ficha del aprendiz
+    #programa;  // Programa de formación al que está inscrito
+
+    // Constructor de la clase Aprendiz
+    constructor() {
+        super();  // Llama al constructor de la clase padre Persona
+        this.#ficha = '';  // Inicializa el número de ficha
+        this.#programa = '';  // Inicializa el programa de formación
+    }
+
+    // Setter para asignar el número de ficha
+    set setFicha(value) {
+        this.#ficha = value;
+    }
+
+    // Getter para obtener el número de ficha
+    get getFicha() {
+        return this.#ficha;
+    }
+
+    // Setter para asignar el programa de formación
+    set setPrograma(value) {
+        this.#programa = value;
+    }
+
+    // Getter para obtener el programa de formación
+    get getPrograma() {
+        return this.#programa;
+    }
+
+    // Método para mostrar información de la matrícula del aprendiz
+    Matricula() {
+        console.log('Estoy inscrito en la ficha ' + this.getFicha + ' del programa ' + this.getPrograma);
+    }
+}
+
+// Clase Instructor que hereda de Persona
+class Instructor extends Persona {
+    // Atributos privados de la clase Instructor
+    #profesion;  // Profesión del instructor
+    #tipoVinculacion;  // Tipo de vinculación laboral del instructor
+
+    // Constructor de la clase Instructor
+    constructor() {
+        super();  // Llama al constructor de la clase padre Persona
+        this.#profesion = '';  // Inicializa la profesión
+        this.#tipoVinculacion = '';  // Inicializa el tipo de vinculación
+    }
+
+    // Setter para asignar la profesión del instructor
+    set setProfesion(value) {
+        this.#profesion = value;
+    }
+
+    // Getter para obtener la profesión del instructor
+    get getProfesion() {
+        return this.#profesion;
+    }
+
+    // Setter para asignar el tipo de vinculación laboral del instructor
+    set setTipoVinculacion(value) {
+        this.#tipoVinculacion = value;
+    }
+
+    // Getter para obtener el tipo de vinculación laboral del instructor
+    get getTipoVinculacion() {
+        return this.#tipoVinculacion;
+    }
+
+    // Método para mostrar información sobre el contrato del instructor
+    contrato() {
+        console.log('Mi profesión es ' + this.getProfesion + ' y mi tipo de vinculación es ' + this.getTipoVinculacion);
+    }
+}
+
+// Clase InstructorPlanta que hereda de Instructor
+class InstructorPlanta extends Instructor {
+    // Atributos privados de la clase InstructorPlanta
+    #fechaVinculacion;  // Año de vinculación a la planta del instructor
+
+    // Constructor de la clase InstructorPlanta
+    constructor() {
+        super();  // Llama al constructor de la clase padre Instructor
+        this.#fechaVinculacion = 0;  // Inicializa la fecha de vinculación
+    }
+
+    // Setter para asignar el año de vinculación a la planta del instructor
+    set setFechaVinculacion(value) {
+        this.#fechaVinculacion = value;
+    }
+
+    // Getter para obtener el año de vinculación a la planta del instructor
+    get getFechaVinculacion() {
+        return this.#fechaVinculacion;
+    }
+
+    // Método para mostrar información del contrato del instructor de planta
+    contrato() {
+        console.log('Mi profesión es ' + this.getProfesion + ' con vinculación de tipo ' + this.getTipoVinculacion + ' desde el año ' + this.getFechaVinculacion);
+    }
+}
+
+// Creación de instancias de las clases
+const aprendiz1 = new Aprendiz;
+const aprendiz2 = new Aprendiz;
+const instructor1 = new InstructorPlanta;
+
+// Asignación de atributos y llamado a métodos
+aprendiz1.setNombreCompleto = 'Cristian';
+aprendiz1.setEdad = 17;
+aprendiz1.setFicha = '2798618';
+aprendiz1.setPrograma = 'Análisis y Desarrollo de Software';
+aprendiz1.Saludar();
+aprendiz1.Matricula();
+
+aprendiz2.setNombreCompleto = 'Santiago';
+aprendiz2.setEdad = 20;
+aprendiz2.setFicha = '2798618';
+aprendiz2.setPrograma = 'Análisis y Desarrollo de Software';
+aprendiz2.Saludar();
+aprendiz2.Matricula();
+
+instructor1.setNombreCompleto = 'Ricardo Jerez';
+instructor1.setEdad = 27;
+instructor1.setProfesion = 'Ingeniero de Sistemas';
+instructor1.setTipoVinculacion = 'Planta';
+instructor1.setFechaVinculacion = 2019;
+instructor1.Saludar();
+instructor1.contrato();
+
+    </script>
+</body>
+
+</html>
